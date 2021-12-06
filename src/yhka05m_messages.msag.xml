@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>YHKA05M_MESSAGES</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>YHKA05M_Messages</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Unkown error occured!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>The age  rating should be between 0 and 99!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>IMDb Metascore Rating is expected to be a value between 0 and 5</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Movie Playtime value should be between 0 and 51420</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Release year should be between 1888 and 2022</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Movie Trailer: youtube-embed-link like: https://www.youtube.com/embed/</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Movie cover link should be like: https://m.media-amazon.com/images/M/...</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YHKA05M_MESSAGES</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Director year of birth value expected to be between 1841 and 2022</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

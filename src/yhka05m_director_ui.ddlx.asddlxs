@@ -1,0 +1,26 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'Director',
+                typeNamePlural: 'Directors',
+                title: { type: #STANDARD, label: 'Director', value: 'DirectorName' }
+              }
+ }
+
+annotate view YHKA05M_Director_DD
+    with 
+{
+ @UI.facet: [  { id:              'Director',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,  
+                 position:        1 }]
+   
+    @UI.hidden: true
+    @UI: { lineItem:       [ { position: 10 , label: 'Director\'s UUID', hidden: true} ],
+    identification: [ { position: 10, label: 'Director\'s UUID', hidden: true} ] }
+    DirectorUuid;
+    @UI: { lineItem:       [ { position: 20, label: 'Director\'s name' } ],identification: [ { position: 20, label: 'Director\'s name'  } ] }
+    DirectorName;
+    @UI: { lineItem:       [ { position: 30, label: 'Year of birth' } ],identification: [ { position: 30, label: 'Year of birth'  } ] }
+    DirectorAge;
+}

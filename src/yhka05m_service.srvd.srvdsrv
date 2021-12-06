@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service YHKA05M'
+define service YHKA05M_Service {
+  expose YHKA05M_Movie_DD;
+  expose YHKA05M_Movierow_DD;
+  expose YHKA05M_Director_DD;
+}

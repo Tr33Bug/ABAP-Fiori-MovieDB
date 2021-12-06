@@ -1,0 +1,22 @@
+managed implementation in class zbp_hka05m_movierow_dd unique;
+
+define behavior for YHKA05M_Movierow_DD alias Movierow
+persistent table YHKA05M_MOVIEROW
+lock master
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) MovierowUuid;
+  field ( mandatory: create ) MovierowTitle, MovierowDescription;
+
+
+  mapping for YHKA05M_MOVIEROW
+  {
+    MovierowUuid = movierow_uuid;
+    MovierowTitle = movierow_title;
+    MovierowDescription = movierow_description;
+  }
+
+}

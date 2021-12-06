@@ -1,0 +1,38 @@
+managed implementation in class zbp_hka05m_movie_dd unique;
+
+define behavior for YHKA05M_Movie_DD alias Movie
+persistent table YHKA05M_MOVIE
+lock master
+{
+  create;
+  update;
+  delete;
+
+  association _Movierow;
+
+  field ( numbering : managed, readonly ) MovieUUID;
+  field ( mandatory : create ) MovieTitle,  MoviePlaytime, MovieRelease, MovieMetaScore, MovierowUuid, DirectorUuid, MovieCover, MovieTrailerLink ;
+
+  validation validateRelease on save { field MovieRelease; update; create; }
+  validation validateMetaScore on save { field MovieMetaScore; update; create; }
+  validation validateUrl on save { field MovieCover; update; create; }
+  validation validateTrailerUrl on save { field MovieTrailerLink; update; create; }
+  validation validatePlaytime on save { field MoviePlaytime; update; create; }
+  validation validateAgeRating on save { field MovieAgeRating; update; create; }
+
+  mapping for yhka05m_movie
+  {
+    MovieUuid = movie_uuid;
+    MovierowUuid = movierow_uuid;
+    MovieTitle = movie_title;
+    MoviePlaytime = Movie_Playtime;
+    MovieDescription = movie_description;
+    MovieTrailerLink = movie_trailer_link;
+    MovieCover = movie_cover;
+    MovieRelease = movie_release;
+    MovieMetaScore = movie_meta_score;
+    MovieAgeRating = movie_age_rating;
+    LastChangedAt = last_changed_at;
+    DirectorUuid = director_uuid;
+  }
+}

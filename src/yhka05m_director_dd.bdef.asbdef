@@ -1,0 +1,22 @@
+managed implementation in class zbp_hka05m_director_dd unique;
+
+define behavior for YHKA05M_Director_DD alias Director
+persistent table YHKA05M_DIRECTOR
+lock master
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) DirectorUuid;
+  field ( mandatory ) DirectorName, DirectorAge;
+
+  validation validateAge on save { field DirectorAge; update; create; }
+
+  mapping for yhka05m_director
+  {
+    DirectorUuid = director_uuid;
+    DirectorName = director_name;
+    DirectorAge = director_age;
+  }
+}

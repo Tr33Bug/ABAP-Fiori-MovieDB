@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Movie Row',
+                title: { type: #STANDARD, label: 'Movie Row', value: 'MovierowTitle' }
+              }
+ }
+
+annotate view YHKA05M_Movierow_DD
+    with 
+{
+
+       @UI.facet: [  { id:      'Movierow',
+                 label: 'Movie Row',
+                 purpose:      #STANDARD,
+                 type:         #IDENTIFICATION_REFERENCE,  
+                 position:        1 }]
+
+
+    @UI.hidden: true
+    @UI: { lineItem:       [ { position: 10 , hidden: true, label: 'Movie Row Uuid'} ],
+    identification: [ { position: 10, label: 'Movie Row Uuid' } ] }
+    MovierowUuid;
+    @UI: {lineItem:       [ { position: 20, label: 'Movie Row'  } ],
+     identification: [ { position: 20, label: 'Movie Row'  } ] }
+    MovierowTitle;
+    @UI: { lineItem:       [ { position: 30, label: 'Description'  } ],
+    identification: [ { position: 30, label: 'Description'  } ] }
+    @UI.multiLineText: true
+    MovierowDescription;
+}

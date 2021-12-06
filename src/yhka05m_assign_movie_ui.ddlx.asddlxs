@@ -1,0 +1,8 @@
+@Metadata.layer: #CORE
+annotate entity YHKA05M_Assign_Movie
+    with 
+{
+    @EndUserText.label: 'Select Movie Row'
+    movierowid;
+    
+}

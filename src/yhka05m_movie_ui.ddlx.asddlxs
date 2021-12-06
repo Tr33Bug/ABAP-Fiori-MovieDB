@@ -1,0 +1,108 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { imageUrl: 'MovieCover',
+                title: { type: #STANDARD,  value: 'MovieTitle', url: 'MovieTrailerLink'}
+               }
+ }
+
+
+annotate view YHKA05M_Movie_DD with
+{
+  @UI.facet: [ {
+               id:        'Movie',
+               purpose:         #STANDARD,
+               label:    'Movie',
+               type:            #IDENTIFICATION_REFERENCE,
+               position:        1 },
+               {
+               id:              'Director',
+               purpose:         #STANDARD,
+               label: 'Director',
+               type:            #IDENTIFICATION_REFERENCE,
+
+               position:        120,
+               targetElement:   '_Director'},
+               {
+               id:              'Movierow',
+               purpose:         #STANDARD,
+               type:            #IDENTIFICATION_REFERENCE,
+               label: 'Movie Row',
+               position:        150,
+               targetElement:   '_Movierow'},
+               {
+               id:      'RelatedMovies',
+               purpose:      #STANDARD,
+               type:         #LINEITEM_REFERENCE,
+               label: 'Related Movies',
+               targetElement:       '_Movierow._RelMovies',
+               position:        500 },
+               {
+                 id:'idHeader',
+                 type:  #DATAPOINT_REFERENCE,
+                 position: 2,
+                 label: 'Header',
+                 purpose: #HEADER,
+                 targetQualifier: 'MovieMetaScore'
+                }
+               ]
+
+  @UI.hidden: true
+  @UI: { lineItem:       [ { position: 20, label: 'Movie UUID', hidden: true}],
+  identification: [ { position: 10, label: 'Movie UUID' , hidden: true} ] }
+  MovieUuid;
+
+  @UI: { lineItem:       [ { position: 20, label: 'Title'  } ],
+  identification: [ { position: 20, label: 'Title' } ] }
+  @UI.selectionField: [ { position: 5 } ]
+  MovieTitle;
+
+  @UI: { lineItem:       [ { position: 30 , label: 'Short summary'} ],
+  identification: [ { position: 30, label: 'Short summary'} ] }
+  @UI.multiLineText: true
+  MovieDescription;
+
+  @UI: { lineItem:       [ { position: 40, label: 'Movie trailer', type: #WITH_URL, url: 'MovieTrailerLink' } ],
+  identification: [ { position: 40, label: 'Movie trailer', type: #WITH_URL, url: 'MovieTrailerLink'} ] }
+  MovieTrailerLink;
+
+  @UI: { lineItem:       [ { position: 50, iconUrl: 'Movie Cover', type: #WITH_URL, url: 'MovieCover', hidden: true } ],
+  identification: [ { position: 50, label: 'Movie cover', type: #WITH_URL, url: 'MovieCover' } ] }
+  MovieCover;
+
+
+  @UI: { identification: [ { position: 70, label: 'Movie Playtime'  } ] }
+  @UI.selectionField: [ { position: 10 } ]
+  MoviePlaytime;
+
+  @UI: { lineItem:       [ { position: 80, label: 'Release Year' } ],
+  identification: [ { position: 80, label: 'Release Year'} ] }
+  @UI.selectionField: [ { position: 15 } ]
+  MovieRelease;
+
+  @UI: { lineItem:       [ { position: 90, type: #AS_DATAPOINT, label: 'IMDb Metascore Rating' }],
+  identification: [ { position: 90, label: 'IMDb Metascore Rating'} ] ,
+  dataPoint: { title: 'Meta Score', visualization: #RATING, targetValue: 5 }
+  }
+  @UI.selectionField: [ { position: 20 } ]
+  MovieMetaScore;
+
+  @UI: { lineItem:       [ { position: 100, label: 'R Rating'} ],
+  identification: [ { position: 100, label: 'Age Rating'} ] }
+  @UI.selectionField: [ { position: 25 } ]
+  MovieAgeRating;
+
+  @UI: { lineItem:       [ { position: 110, label: 'DirectorUuid', hidden: true} ],
+  identification: [ { position: 110, label: 'Associated Director'} ]}
+  @Consumption:{ valueHelpDefinition: [ { entity: { name    : 'YHKA05m_DIRECTOR_DD',
+                                          element : 'DirectorUuid' }}]
+                               }
+  @UI.textArrangement: #TEXT_ONLY  
+  DirectorUuid;
+
+  @UI: { lineItem:       [ { position: 120, label: 'MovierowUuid', hidden: true}],
+  identification: [ { position: 120, label: ' Associated Movie Row'}]}
+  @Consumption:{ valueHelpDefinition: [ { entity: { name    : 'YHKA05m_Movierow_DD',
+                                      element : 'MovierowUuid' }}]}
+  @UI.textArrangement: #TEXT_ONLY
+  MovierowUuid;
+}
